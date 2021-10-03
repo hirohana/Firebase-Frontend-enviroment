@@ -1,7 +1,34 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { StoreState } from 'reducers';
+import { Router, Route, Switch } from 'react-router-dom';
+import history from 'browserHistory';
+import Page1 from 'pages/Page1';
+import Page2 from 'pages/Page2';
 
-function App() {
-  return <div>React</div>;
+interface AppProps {
+  test?: number;
 }
 
-export default App;
+class _App extends React.Component<AppProps, {}> {
+  render() {
+    return (
+      <div>
+        <Router history={history}>
+          <div>
+            <Switch>
+              <Route path="/page1" exact component={Page1} />
+              <Route path="/page2" exact component={Page2} />
+            </Switch>
+          </div>
+        </Router>
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = ({ test }: StoreState): { test: number } => {
+  return { test };
+};
+
+export const App = connect(mapStateToProps, null)(_App);
