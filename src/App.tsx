@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StoreState } from 'reducers';
+import { StoreState } from './reducks/counter/index';
 import { Router, Route, Switch } from 'react-router-dom';
 import history from 'browserHistory';
-import Page1 from 'pages/Page1';
-import Page2 from 'pages/Page2';
+import Page1 from './components/pages/Page1';
+import Page2 from './components/pages/Page2';
 
 interface AppProps {
   test?: number;
 }
 
-class _App extends React.Component<AppProps, {}> {
+class _App extends React.Component<AppProps> {
   render() {
     return (
       <div>
