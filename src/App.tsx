@@ -5,6 +5,7 @@ import { Router, Route, Switch } from 'react-router-dom';
 import history from 'browserHistory';
 import Page1 from './components/pages/Page1';
 import Page2 from './components/pages/Page2';
+import './styles/style.scss';
 
 interface AppProps {
   test?: number;
