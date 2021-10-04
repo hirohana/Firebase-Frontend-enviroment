@@ -1,37 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+import Router from 'routers/Router';
 
-import * as Actions from './reducks/users/actions';
-import { USER_STATE } from './reducks/users/types';
-
-const App: React.FC = (props: any) => {
-  console.log(props);
+const App: React.FC = () => {
   return (
-    <>
-      <div>App</div>
-      <button onClick={props.actions.login}>Button</button>
-    </>
+    <main>
+      <Router />
+    </main>
   );
 };
 
-const obj: USER_STATE = {
-  users: {
-    uid: '001',
-    username: 'Hiro',
-    photoUrl: 'https://com',
-  },
-};
-const mapStatetoProps = (state: USER_STATE) => {
-  return { users: state.users };
-};
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    actions: {
-      login() {
-        dispatch(Actions.loginAction(obj));
-      },
-    },
-  };
-};
-
-export default connect(mapStatetoProps, mapDispatchToProps)(App);
+export default App;
